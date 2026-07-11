@@ -5,6 +5,7 @@ import TechMarquee from "@/app/components/TechMarquee";
 import Services from "@/app/components/Services";
 import Portfolio from "@/app/components/Portfolio";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Services />
       <Portfolio />
       <Contact />
+      <Footer />
     </main>
   );
 }
