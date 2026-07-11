@@ -81,12 +81,15 @@ export default function About() {
                 Hey, I am <span className="text-[#ff004f]">Akila Isuru</span>
               </h3>
               <p className="text-gray-300 leading-relaxed text-base">
-                I&apos;m 22 years old and currently studying to become an IT
-                Professional at a Software Engineering Institute. My goal is to
-                work as a Fullstack Developer in the near future. I&apos;m
-                diving deep into web development, mobile development, and
-                additionally following a course in AI &amp; ML Engineering at
-                IUSE. Beyond coding, I love music, traveling, and gaming.
+                I&apos;m 23 years old specialized in building scalable
+                enterprise systems and integrating advanced machine learning
+                models into modern web applications. Recognized as Batch Third
+                (1st Semester) at IJSE, I&apos;m currently studying web and
+                mobile development alongside a certified AI/ML program covering
+                LLMs, RAG pipelines, and deep learning. I&apos;m passionate
+                about bridging clean software architecture with secure, seamless
+                user experiences — and outside of code, you&apos;ll find me
+                exploring music, traveling, and gaming.
               </p>
             </div>
           </motion.div>
