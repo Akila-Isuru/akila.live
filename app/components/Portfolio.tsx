@@ -166,7 +166,7 @@ const projects = [
       "MySQL Database Integration",
     ],
     demo: "#",
-    github: "https://github.com/Akila-Isuru/pos-system",
+    github: "https://github.com/Akila-Isuru/SpringBoot_POS_System",
     showDemo: false,
     showGithub: true,
     buttonLabel: "View on GitHub",

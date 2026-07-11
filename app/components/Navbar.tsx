@@ -51,7 +51,7 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-white relative z-[60]"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -61,7 +61,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed top-0 right-0 h-screen w-64 bg-[#0d0d0d] transform transition-transform duration-500 ease-in-out ${
+        className={`md:hidden fixed top-0 right-0 h-screen w-64 bg-[#0d0d0d] z-50 transform transition-transform duration-500 ease-in-out ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

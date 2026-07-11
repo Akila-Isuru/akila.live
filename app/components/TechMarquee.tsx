@@ -60,7 +60,7 @@ const ANGLE_STEP = 360 / techs.length;
 
 export default function TechMarquee() {
   return (
-    <section className="bg-[#050505] pt-4 pb-20 overflow-hidden border-y border-white/5">
+    <section className="bg-[#050505] pt-4 pb-4 overflow-hidden border-y border-white/5">
       <div className="max-w-6xl mx-auto px-6 md:px-10">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

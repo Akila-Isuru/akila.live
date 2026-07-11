@@ -47,7 +47,7 @@ const experience = [
 
 export default function About() {
   return (
-    <section id="about" className="bg-[#050505] pt-28 pb-12 px-6 md:px-10">
+    <section id="about" className="bg-[#050505] pt-28 pb-9 px-6 md:px-10">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <motion.div

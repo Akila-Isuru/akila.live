@@ -10,6 +10,8 @@ import {
   FaYoutube,
   FaInstagram,
 } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -18,6 +20,7 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -31,18 +34,30 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setIsError(false);
 
-    // Simulate sending email
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+      );
 
-    // Here you can integrate with EmailJS, Nodemailer, or any email service
-    console.log("Form Data:", formData);
-
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    setFormData({ name: "", email: "", message: "" });
-
-    setTimeout(() => setIsSuccess(false), 5000);
+      setIsSuccess(true);
+      setFormData({ name: "", email: "", message: "" });
+      setTimeout(() => setIsSuccess(false), 5000);
+    } catch (error) {
+      console.error("Email send failed:", error);
+      setIsError(true);
+      setTimeout(() => setIsError(false), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -215,6 +230,12 @@ export default function Contact() {
                   </>
                 )}
               </button>
+
+              {isError && (
+                <p className="text-red-400 text-sm text-center">
+                  Something went wrong. Please try again or email me directly.
+                </p>
+              )}
             </form>
           </motion.div>
 
