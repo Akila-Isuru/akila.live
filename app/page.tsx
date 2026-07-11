@@ -4,6 +4,7 @@ import About from "@/app/components/About";
 import TechMarquee from "@/app/components/TechMarquee";
 import Services from "@/app/components/Services";
 import Portfolio from "@/app/components/Portfolio";
+import Contact from "./components/Contact";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <TechMarquee />
       <Services />
       <Portfolio />
+      <Contact />
     </main>
   );
 }
