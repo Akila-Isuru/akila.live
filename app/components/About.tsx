@@ -65,52 +65,49 @@ export default function About() {
           </h2>
         </motion.div>
 
-        {/* Main Grid: Photo + Summary */}
+        {/* Main Grid: Photo on right, Summary on left */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-6">
-          {/* Photo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="md:col-span-4 relative rounded-2xl overflow-hidden border border-white/10 min-h-[340px] md:min-h-full"
-          >
-            <Image
-              src="/images/about-photo.jpg"
-              alt="Akila Isuru Kahingala"
-              fill
-              className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
-            />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-5">
-              <p className="text-white font-medium">Akila Isuru</p>
-              <p className="text-gray-400 text-sm">Full-Stack Developer</p>
-            </div>
-          </motion.div>
-
-          {/* Summary Card */}
+          {/* Summary Card - on the left side */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="md:col-span-8 bg-[#0e0e0e] border border-white/10 rounded-2xl p-8 md:p-10 flex flex-col justify-center relative overflow-hidden"
+            className="md:col-span-7 bg-[#0e0e0e] border border-white/10 rounded-2xl p-8 md:p-10 flex flex-col justify-center relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#ff004f]/5 blur-3xl rounded-full" />
-            <p className="text-gray-300 leading-relaxed text-lg relative z-10">
-              I&apos;m a{" "}
-              <span className="text-white font-medium">
-                23 year old Full Stack Developer
-              </span>{" "}
-              specialized in building scalable enterprise systems and
-              integrating advanced machine learning models into modern web
-              applications. Recognized as Batch Third (1st Semester) at IJSE ,
-              I&apos;m currently studying web and mobile development alongside a
-              certified AI/ML program covering LLMs, RAG pipelines, and deep
-              learning. I&apos;m passionate about bridging clean software
-              architecture with secure, seamless user experiences — and outside
-              of code, you&apos;ll find me exploring music, traveling, and
-              gaming.
-            </p>
+            <div className="relative z-10">
+              <h3 className="text-2xl font-bold text-white mb-3">
+                Hey, I am <span className="text-[#ff004f]">Akila Isuru</span>
+              </h3>
+              <p className="text-gray-300 leading-relaxed text-base">
+                I&apos;m 22 years old and currently studying to become an IT
+                Professional at a Software Engineering Institute. My goal is to
+                work as a Fullstack Developer in the near future. I&apos;m
+                diving deep into web development, mobile development, and
+                additionally following a course in AI &amp; ML Engineering at
+                IUSE. Beyond coding, I love music, traveling, and gaming.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Photo - on the right side */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="md:col-span-5 relative rounded-2xl overflow-hidden border border-white/10 h-[400px]"
+          >
+            <Image
+              src="/images/mybestpropic.jpg"
+              alt="Akila Isuru Kahingala"
+              fill
+              sizes="(max-width: 768px) 100vw, 41vw"
+              className="object-cover"
+              priority
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-5"></div>
           </motion.div>
         </div>
 
@@ -143,7 +140,7 @@ export default function About() {
           ))}
         </motion.div>
 
-        {/* Education & Experience - split into two subtle sections */}
+        {/* Education & Experience - kept exactly as you requested */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Education */}
           <motion.div
