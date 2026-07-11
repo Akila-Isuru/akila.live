@@ -57,3 +57,28 @@ body {
   background: var(--accent);
   border-radius: 10px;
 }
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 25s linear infinite;
+}
+
+@keyframes rotate-3d {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.animate-rotate-3d {
+  animation: rotate-3d 4s linear infinite;
+}
