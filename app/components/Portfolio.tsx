@@ -11,6 +11,7 @@ import {
   Brain,
   X,
   CheckCircle,
+  Download,
 } from "lucide-react";
 
 const projects = [
@@ -44,7 +45,9 @@ const projects = [
       "Role-based Access Control",
     ],
     demo: "https://travel-lanka-fe.vercel.app/login",
-    github: "https://github.com/Akila-Isuru/lankatravel",
+    github: "https://github.com/Akila-Isuru/Travel_Lanka_FE",
+    showDemo: true,
+    showGithub: true,
   },
   {
     id: 2,
@@ -74,12 +77,52 @@ const projects = [
       "Role-based Access Control",
       "Real-time Swap Management",
     ],
-    demo: "https://skillswap.vercel.app",
-    github: "https://github.com/Akila-Isuru/skillswap-hub",
+    demo: "#",
+    github: "https://github.com/Akila-Isuru/Skill-Swap-Hub-",
+    showDemo: false,
+    showGithub: true,
+    buttonLabel: "View on GitHub",
   },
   {
     id: 3,
-    title: "FairAge",
+    title: "Student Attendance App",
+    category: "Mobile",
+    icon: Smartphone,
+    color: "#02569B",
+    image: "/images/projects/attendance_app.jpg",
+    description:
+      "Flutter-based student attendance system with biometric authentication and Firebase integration.",
+    longDescription:
+      "A comprehensive student attendance management mobile application built with Flutter and Firebase. Features include biometric (fingerprint) authentication for secure attendance marking, real-time attendance history tracking, leave request management with Firebase Cloud Firestore, and a fully responsive dashboard. The app supports dark/light theme toggle and provides a seamless user experience for students to mark attendance and manage leave requests efficiently.",
+    tech: [
+      "Flutter",
+      "Dart",
+      "Firebase Auth",
+      "Cloud Firestore",
+      "Local Auth",
+      "Provider",
+    ],
+    features: [
+      "Biometric (Fingerprint) Authentication",
+      "Real-time Attendance Tracking",
+      "Leave Request Management",
+      "Firebase Cloud Integration",
+      "Dark/Light Theme Support",
+      "Student Dashboard",
+    ],
+    demo: "#",
+    github: "https://github.com/Akila-Isuru/student-attendance-mobile-app",
+    download:
+      "https://drive.google.com/file/d/1omsFW6sJlrpE3FSrpc2z36y_lmJ-BwIp/view?usp=drive_link",
+    showDemo: false,
+    showGithub: true,
+    showDownload: true,
+    buttonLabel: "View on GitHub",
+    downloadLabel: "Download APK",
+  },
+  {
+    id: 4,
+    title: "FairVision AI",
     category: "AI/ML",
     icon: Brain,
     color: "#EE4C2C",
@@ -97,11 +140,13 @@ const projects = [
       "Real-time Predictions",
       "Probability Visualization",
     ],
-    demo: "https://fairage.streamlit.app",
-    github: "https://github.com/Akila-Isuru/fairage",
+    demo: "https://agepredictmodel-akila.streamlit.app/",
+    github: "https://github.com/Akila-Isuru/Age_predict_model",
+    showDemo: true,
+    showGithub: true,
   },
   {
-    id: 4,
+    id: 5,
     title: "Enterprise POS System",
     category: "Desktop",
     icon: Monitor,
@@ -122,12 +167,15 @@ const projects = [
     ],
     demo: "#",
     github: "https://github.com/Akila-Isuru/pos-system",
+    showDemo: false,
+    showGithub: true,
+    buttonLabel: "View on GitHub",
   },
   {
-    id: 5,
+    id: 6,
     title: "Driving School Platform",
-    category: "Web",
-    icon: Globe,
+    category: "Desktop",
+    icon: Monitor,
     color: "#F24E1E",
     image: "/images/projects/drivingschool.jpg",
     description:
@@ -144,11 +192,15 @@ const projects = [
       "Secure Architecture",
     ],
     demo: "#",
-    github: "https://github.com/Akila-Isuru/driving-school",
+    github:
+      "https://github.com/Akila-Isuru/Elite-Driving-School-System-Advanced",
+    showDemo: false,
+    showGithub: true,
+    buttonLabel: "View on GitHub",
   },
 ];
 
-const categories = ["All", "Web", "Desktop", "AI/ML"];
+const categories = ["All", "Web", "Mobile", "Desktop", "AI/ML"];
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -168,10 +220,10 @@ export default function Portfolio() {
     setIsModalOpen(true);
   };
 
-  const handleDemoClick = (e: React.MouseEvent, url: string) => {
+  const handleDemoClick = (e: React.MouseEvent, url: string, title: string) => {
     e.stopPropagation();
     if (url && url !== "#") {
-      setNotification(" Opening LankaTravel...");
+      setNotification(`Opening ${title}...`);
       setTimeout(() => setNotification(null), 2000);
 
       setTimeout(() => {
@@ -180,6 +232,38 @@ export default function Portfolio() {
     } else {
       setNotification("Demo coming soon!");
       setTimeout(() => setNotification(null), 2000);
+    }
+  };
+
+  const handleGithubClick = (
+    e: React.MouseEvent,
+    url: string,
+    title: string,
+  ) => {
+    e.stopPropagation();
+    if (url && url !== "#") {
+      setNotification(`Opening ${title} on GitHub...`);
+      setTimeout(() => setNotification(null), 2000);
+
+      setTimeout(() => {
+        window.open(url, "_blank");
+      }, 300);
+    }
+  };
+
+  const handleDownloadClick = (
+    e: React.MouseEvent,
+    url: string,
+    title: string,
+  ) => {
+    e.stopPropagation();
+    if (url && url !== "#") {
+      setNotification(`Downloading ${title} APK...`);
+      setTimeout(() => setNotification(null), 2000);
+
+      setTimeout(() => {
+        window.open(url, "_blank");
+      }, 300);
     }
   };
 
@@ -402,27 +486,58 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              {/* Links */}
+              {/* Links - Dynamic based on project */}
               <div className="flex flex-wrap gap-3">
-                {selectedProject.demo && selectedProject.demo !== "#" && (
-                  <button
-                    onClick={(e) => handleDemoClick(e, selectedProject.demo)}
-                    className="flex items-center gap-2 px-5 py-2.5 bg-[#ff004f] text-white rounded-lg font-medium hover:bg-[#e60045] transition-colors"
-                  >
-                    <ExternalLink size={18} />
-                    Live Demo
-                  </button>
-                )}
-                {selectedProject.github && selectedProject.github !== "#" && (
-                  <a
-                    href={selectedProject.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-5 py-2.5 border border-white/20 text-white rounded-lg font-medium hover:border-[#ff004f] hover:text-[#ff004f] transition-colors"
-                  >
-                    Source Code
-                  </a>
-                )}
+                {selectedProject.showDemo &&
+                  selectedProject.demo &&
+                  selectedProject.demo !== "#" && (
+                    <button
+                      onClick={(e) =>
+                        handleDemoClick(
+                          e,
+                          selectedProject.demo,
+                          selectedProject.title,
+                        )
+                      }
+                      className="flex items-center gap-2 px-5 py-2.5 bg-[#ff004f] text-white rounded-lg font-medium hover:bg-[#e60045] transition-colors"
+                    >
+                      <ExternalLink size={18} />
+                      Live Demo
+                    </button>
+                  )}
+                {selectedProject.showGithub &&
+                  selectedProject.github &&
+                  selectedProject.github !== "#" && (
+                    <button
+                      onClick={(e) =>
+                        handleGithubClick(
+                          e,
+                          selectedProject.github,
+                          selectedProject.title,
+                        )
+                      }
+                      className="flex items-center gap-2 px-5 py-2.5 border border-white/20 text-white rounded-lg font-medium hover:border-[#ff004f] hover:text-[#ff004f] transition-colors"
+                    >
+                      {selectedProject.buttonLabel || "Source Code"}
+                    </button>
+                  )}
+                {selectedProject.showDownload &&
+                  selectedProject.download &&
+                  selectedProject.download !== "#" && (
+                    <button
+                      onClick={(e) =>
+                        handleDownloadClick(
+                          e,
+                          selectedProject.download,
+                          selectedProject.title,
+                        )
+                      }
+                      className="flex items-center gap-2 px-5 py-2.5 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition-colors"
+                    >
+                      <Download size={18} />
+                      {selectedProject.downloadLabel || "Download"}
+                    </button>
+                  )}
               </div>
             </motion.div>
           </motion.div>

@@ -83,7 +83,7 @@ const servicesData = [
       "Bringing artificial intelligence to real-world applications. I work with deep learning frameworks (PyTorch), large language models (LLMs), and RAG pipelines to build intelligent solutions. My expertise includes model fine-tuning, bias mitigation, and deploying AI-powered features into production applications.",
     features: [
       "LLM Integration (Gemini, OpenAI)",
-      "RAG Pipeline Development",
+      "Clasical ML Algorithms",
       "Deep Learning (PyTorch)",
       "Data Analysis & Visualization",
       "Model Fine-Tuning",
