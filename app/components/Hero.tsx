@@ -3,6 +3,7 @@
 import { TypeAnimation } from "react-type-animation";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Download } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -19,15 +20,15 @@ export default function Hero() {
         className="object-cover object-center"
       />
 
-      {/* Dark Overlay for readability - lighter now */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent" />
+      {/* Dark Overlay for readability - lighter for more image visibility */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent" />
 
       {/* Text Content */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="relative z-10 max-w-7xl w-full mx-auto px-6 md:px-10"
+        className="relative z-10 max-w-7xl w-full mx-auto px-6 md:px-10 pt-24"
       >
         <p className="text-lg md:text-xl text-gray-300 mb-2">
           Hello It&apos;s Me
@@ -62,10 +63,12 @@ export default function Hero() {
         {/* CTA Buttons */}
         <div className="flex gap-4 mt-10">
           <a
-            href="#contact"
-            className="px-8 py-3 bg-[#ff004f] text-white rounded-md font-medium hover:bg-[#e60045] transition-colors duration-300"
+            href="/files/Akila_Isuru_Kahingala_CV.pdf"
+            download="Akila_Isuru_Kahingala_CV.pdf"
+            className="flex items-center gap-2 px-8 py-3 bg-[#ff004f] text-white rounded-md font-medium hover:bg-[#e60045] transition-colors duration-300"
           >
-            Hire Me
+            <Download size={18} />
+            Download CV
           </a>
           <a
             href="#portfolio"
