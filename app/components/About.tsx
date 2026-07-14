@@ -103,7 +103,7 @@ export default function About() {
             className="md:col-span-5 relative rounded-2xl overflow-hidden border border-white/10 h-[400px]"
           >
             <Image
-              src="/images/mybestpropic.jpg"
+              src="/images/pro5.jpg"
               alt="Akila Isuru Kahingala"
               fill
               sizes="(max-width: 768px) 100vw, 41vw"
