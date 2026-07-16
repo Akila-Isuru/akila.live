@@ -91,7 +91,7 @@ export default function Contact() {
     {
       icon: FaLinkedin,
       label: "LinkedIn",
-      url: "https://www.linkedin.com/in/akila-isuru-kahingala-078239341/",
+      url: "https://www.linkedin.com/in/akila-isuru-078239341/",
       color: "#0A66C2",
     },
     {
